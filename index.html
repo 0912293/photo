@@ -26,19 +26,122 @@
 </header>
 
 <main>
-  <div class="card">
+  <section class="card">
     <h2>Welkom</h2>
-    <p>Deze kleine website is bedoeld om de rekenopdrachten voor je fotografietoets te oefenen.</p>
-    <p>Op elke pagina kun je het concept kort nalezen en daarna een quiz doen.
-       De site houdt bij hoeveel vragen je goed of fout hebt.</p>
+    <p>Deze website is bedoeld om de rekenopdrachten voor je fotografietoets te oefenen.</p>
+    <p>Op de afzonderlijke pagina’s kun je oefenen met oneindige quizzen. Op deze homepagina
+      staan alle belangrijke formules en uitleg compact bij elkaar.</p>
+  </section>
+
+  <!-- Belichting & stops -->
+  <section class="card explanation">
+    <h2>Belichting &amp; stops</h2>
+    <p>Een <strong>stop</strong> betekent een verdubbeling of halvering van de hoeveelheid licht.</p>
     <ul>
-      <li><strong>Belichting &amp; stops:</strong> ISO, sluitertijd en diafragma in hele stops.</li>
-      <li><strong>Richtgetal flitser:</strong> GN = afstand × diafragma.</li>
-      <li><strong>Omgekeerde kwadraten:</strong> afname van licht met de afstand.</li>
-      <li><strong>Hyperfocale afstand:</strong> scherptediepte i.c.m. brandpuntsafstand, diafragma en CoC.</li>
+      <li><strong>ISO:</strong> 50 – 100 – 200 – 400 – 800 – 1600 – 3200 – 6400 – 12500</li>
+      <li><strong>Sluitertijd:</strong> 1" – 1/2 – 1/4 – 1/8 – 1/15 – 1/30 – 1/60 – 1/125 – 1/250 – 1/500 – 1/1000 – 1/2000 – 1/4000</li>
+      <li><strong>Diafragma:</strong> f/1.4 – f/2 – f/2.8 – f/4 – f/5.6 – f/8 – f/11 – f/16 – f/22 – f/32</li>
     </ul>
-    <p>Klik in het menu hierboven om te beginnen met oefenen.</p>
-  </div>
+    <p>
+      Vergroot je één instelling met <em>x stops</em> (bijv. sluitertijd twee stops langer),
+      dan moet je een andere instelling met <em>x stops in de andere richting</em> aanpassen
+      (bijv. diafragma twee stops dicht) om dezelfde belichting te houden.
+    </p>
+  </section>
+
+  <!-- Richtgetal flitser -->
+  <section class="card explanation">
+    <h2>Richtgetal flitser</h2>
+    <p>
+      Het <strong>richtgetal</strong> (guide number, GN) is een maat voor de lichtopbrengst
+      van een flitser bij ISO 100.
+    </p>
+    <p>Belangrijke formules:</p>
+    <ul>
+      <li><strong>GN = afstand × diafragma</strong></li>
+      <li><strong>afstand = GN / diafragma</strong></li>
+      <li><strong>diafragma = GN / afstand</strong></li>
+    </ul>
+    <p>
+      Voorbeeld: richtgetal 48 bij ISO 100. Je onderwerp staat op 6 meter:<br>
+      48 = 6 × f/8 → je gebruikt dus f/8.
+    </p>
+  </section>
+
+  <!-- Omgekeerde kwadraten -->
+  <section class="card explanation">
+    <h2>Omgekeerde kwadraten</h2>
+    <p>
+      Bij de <strong>wet van de omgekeerde kwadraten</strong> daalt de lichtintensiteit
+      met het kwadraat van de afstand tot de lichtbron.
+    </p>
+    <p>
+      We nemen 1 meter als referentie: op 1 m is de intensiteit <strong>100%</strong>.
+      Op afstand <em>d</em> meter wordt de intensiteit:
+    </p>
+    <p><strong>I(d) = 100% / d²</strong></p>
+
+    <h3>Voorbeeld 1 – afstand → percentage</h3>
+    <p>Je wilt weten hoeveel licht je op 6 meter overhoudt:</p>
+    <ul>
+      <li>Bereken d²: 6² = 36</li>
+      <li>De intensiteit wordt 100% / 36 ≈ <strong>3%</strong></li>
+      <li>Je hebt dus ongeveer <strong>1/36 van het licht</strong> van op 1 meter.</li>
+    </ul>
+
+    <h3>Voorbeeld 2 – percentage → afstand</h3>
+    <p>Je weet dat de flits nog maar ongeveer 4% van de oorspronkelijke kracht heeft:</p>
+    <ul>
+      <li>Schrijf het als breuk: 4% = 4/100 = 1/25</li>
+      <li>Dat betekent dat d² ≈ 25</li>
+      <li>De wortel van 25 is 5 → de afstand is dus ongeveer <strong>5 meter</strong>.</li>
+    </ul>
+
+    <p>
+      Handig ezelsbruggetje: zie je een breuk als 1/4, 1/9, 1/16, 1/25, … dan zoek je
+      het getal waarvan dat het kwadraat is (2², 3², 4², 5², …) om de bijbehorende afstand
+      te krijgen.
+    </p>
+  </section>
+
+  <!-- Hyperfocale afstand -->
+  <section class="card explanation">
+    <h2>Hyperfocale afstand</h2>
+    <p>
+      De <strong>hyperfocale afstand</strong> is de scherpstelafstand waarbij alles
+      van ongeveer de helft van die afstand tot oneindig acceptabel scherp is.
+    </p>
+    <p>Ze hangt af van:</p>
+    <ul>
+      <li><strong>f</strong> – brandpuntsafstand (in mm)</li>
+      <li><strong>N</strong> – diafragma (f-getal)</li>
+      <li><strong>c</strong> – diameter van de cirkel van verwarring (CoC, in mm)</li>
+    </ul>
+    <p>Een simpele en veelgebruikte benadering is:</p>
+    <p><strong>H ≈ f² / (N × c)</strong> &nbsp; (H en f in mm)</p>
+    <p>De uitkomst in mm kun je delen door 1000 om meters te krijgen.</p>
+
+    <h3>Voorbeeldberekening</h3>
+    <p>
+      Stel: je hebt een <strong>full-frame</strong> camera met een
+      <strong>20mm</strong> lens op <strong>f/11</strong>.
+      Voor full-frame nemen we <strong>c = 0,03 mm</strong>.
+    </p>
+    <ol>
+      <li>Schrijf de formule op: H ≈ f² / (N × c)</li>
+      <li>Bereken f²: 20² = <strong>400</strong></li>
+      <li>Bereken N × c: 11 × 0,03 = <strong>0,33</strong></li>
+      <li>Deel: 400 / 0,33 ≈ <strong>1212 mm</strong></li>
+      <li>
+        Zet om naar meters: 1212 mm / 1000 ≈ <strong>1,2 meter</strong>.
+        De hyperfocale afstand is dus ongeveer 1,2 m.
+      </li>
+    </ol>
+    <p>
+      Als je op ongeveer 1,2 m scherpstelt, is alles vanaf ongeveer 0,6 m
+      (de helft van 1,2 m) tot oneindig acceptabel scherp.
+    </p>
+  </section>
 </main>
 
 <footer>
@@ -48,4 +151,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
