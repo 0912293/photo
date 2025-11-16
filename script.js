@@ -276,7 +276,7 @@ function setupFlashQuiz() {
   let correct = 0;
   let wrong = 0;
   let currentAnswer = null;
-  let currentType = null; // 'aperture' or 'distance'
+  let currentType = null; // 'aperture' | 'distance' | 'guideNumber'
   let awaitingNext = false;
 
   function generateQuestion() {
@@ -287,7 +287,8 @@ function setupFlashQuiz() {
     if (hintEl) hintEl.textContent = '';
     hideExplanation();
 
-    const type = choose(['aperture', 'distance']);
+    // Drie soorten vragen
+    const type = choose(['aperture', 'distance', 'guideNumber']);
     currentType = type;
 
     const apertureOptions = [2, 2.8, 4, 5.6, 8, 11, 16];
@@ -295,18 +296,30 @@ function setupFlashQuiz() {
     const distance = randInt(1, 10); // meters
 
     const guideNumberRaw = aperture * distance;
-    const guideNumberDisplay = Math.round(guideNumberRaw * 10) / 10; // clean text
+    const guideNumberDisplay = Math.round(guideNumberRaw * 10) / 10; // netjes afronden
 
     if (type === 'aperture') {
+      // DIAFRAGMA zoeken
       questionEl.textContent =
-        `Je flitser heeft een richtgetal (GN) van ${guideNumberDisplay} bij ISO 100. ` +
-        `Je onderwerp staat op ${distance} meter. Welk diafragma heb je dan?`;
+        `Het richtgetal (GN) is ${guideNumberDisplay} bij ISO 100 ` +
+        `en de afstand tot het onderwerp is ${distance} meter. ` +
+        `Welk diafragma (f-getal) moet je gebruiken? (GN = afstand × diafragma)`;
       currentAnswer = aperture.toString();
-    } else {
+
+    } else if (type === 'distance') {
+      // AFSTAND zoeken
       questionEl.textContent =
-        `Je flitser heeft een richtgetal (GN) van ${guideNumberDisplay} bij ISO 100. ` +
-        `Je fotografeert op f/${aperture}. Op welke afstand (in meters) kan je onderwerp maximaal staan?`;
+        `Het richtgetal (GN) is ${guideNumberDisplay} bij ISO 100 ` +
+        `en je fotografeert op f/${aperture}. ` +
+        `Op welke afstand (in meters) kan je onderwerp staan? (GN = afstand × diafragma)`;
       currentAnswer = distance.toString();
+
+    } else {
+      // RICHTGETAL zoeken
+      questionEl.textContent =
+        `Je onderwerp staat op ${distance} meter en je fotografeert op f/${aperture}. ` +
+        `Welk richtgetal (GN) hoort daarbij? Rond eventueel af op één decimaal.`;
+      currentAnswer = guideNumberDisplay; // numeriek
     }
   }
 
@@ -329,11 +342,20 @@ function setupFlashQuiz() {
       const correctVal = parseFloat(currentAnswer);
       isCorrect = (user === correctVal);
       correctText = 'f/' + currentAnswer;
-    } else {
+
+    } else if (currentType === 'distance') {
       const user = parseFloat(raw.trim().replace(',', '.'));
       const correctVal = parseFloat(currentAnswer);
       isCorrect = (user === correctVal);
       correctText = correctVal + ' m';
+
+    } else {
+      // guideNumber
+      const user = parseFloat(raw.trim().replace(',', '.'));
+      const correctVal = currentAnswer; // numeriek
+      // kleine marge voor afronding op 1 decimaal
+      isCorrect = !isNaN(user) && Math.abs(user - correctVal) < 0.2;
+      correctText = correctVal.toFixed(1);
     }
 
     if (isCorrect) {
@@ -342,11 +364,17 @@ function setupFlashQuiz() {
       feedbackEl.className = 'feedback-correct';
     } else {
       wrong++;
-      const label = currentType === 'aperture' ? 'diafragma' : 'afstand';
+      let label;
+      if (currentType === 'aperture') label = 'diafragma';
+      else if (currentType === 'distance') label = 'afstand';
+      else label = 'richtgetal (GN)';
+
       feedbackEl.textContent =
         `Niet helemaal. Juiste ${label}: ${correctText}\n` +
-        `Uitleg: gebruik GN = afstand × diafragma en los de onbekende variabele op ` +
-        `(GN gedeeld door afstand óf GN gedeeld door diafragma).`;
+        `Uitleg: gebruik de formule voor flitslicht: GN = afstand × diafragma.\n` +
+        `• Zoek je het diafragma → diafragma = GN / afstand\n` +
+        `• Zoek je de afstand → afstand = GN / diafragma\n` +
+        `• Zoek je het richtgetal → GN = afstand × diafragma`;
       feedbackEl.className = 'feedback-wrong';
       showExplanation();
     }
@@ -496,7 +524,7 @@ function setupHyperfocalQuiz() {
     const N = choose(apertures);
     const c = sensorType === 'Full-frame' ? 0.03 : 0.02; // mm
 
-    // H in mm, using H = f^2 / (N * c)
+    // H in mm, using H = f^2 / (N * c) (zonder + f)
     const H_mm = (f * f) / (N * c);
     const H_m = H_mm / 1000;
     const rounded = Math.round(H_m * 10) / 10; // one decimal
@@ -532,7 +560,7 @@ function setupHyperfocalQuiz() {
       wrong++;
       feedbackEl.textContent =
         `Niet helemaal. Ongeveer: ${correctVal.toFixed(1)} m\n` +
-        `Uitleg: gebruik H ≈ f² / (N × c) + f (in mm) en deel de uitkomst door 1000 om meters te krijgen.`;
+        `Uitleg: gebruik H ≈ f² / (N × c) (in mm) en deel de uitkomst door 1000 om meters te krijgen.`;
       feedbackEl.className = 'feedback-wrong';
       showExplanation();
     }
@@ -608,5 +636,3 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHyperfocalQuiz();
   }
 });
-
-
