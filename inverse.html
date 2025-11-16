@@ -26,18 +26,38 @@
 </header>
 
 <main>
-  <section class="card explanation hidden">
-    <h2>Uitleg</h2>
-    <p>De <strong>omgekeerde kwadratenwet</strong> zegt dat de lichtintensiteit afneemt met het
-      kwadraat van de afstand tot de lichtbron:</p>
-    <p><strong>I ∝ 1 / afstand²</strong></p>
-    <ul>
-      <li>Op 1 meter → 100% licht</li>
-      <li>Op 2 meter → ongeveer 25% (1 / 2²)</li>
-      <li>Op 3 meter → ongeveer 11% (1 / 3²)</li>
-    </ul>
-    <p>Verdubbel je de afstand, dan verlies je zo’n 2 stops licht (ongeveer 1/4 van de intensiteit).</p>
-  </section>
+ <section class="card explanation hidden">
+  <h2>Uitleg</h2>
+  <p>
+    Bij de <strong>wet van de omgekeerde kwadraten</strong> daalt de lichtintensiteit
+    met het kwadraat van de afstand tot de lichtbron.
+  </p>
+  <p>
+    We nemen 1 meter als referentie: op 1 m is de intensiteit <strong>100%</strong>.
+    Op afstand <em>d</em> meter wordt de intensiteit:
+  </p>
+  <p><strong>I(d) = 100% / d²</strong></p>
+
+  <h3>Voorbeeld 1 – afstand → percentage</h3>
+  <p>Je wilt weten hoeveel licht je op 6 meter overhoudt:</p>
+  <ul>
+    <li>Bereken d²: 6² = 36</li>
+    <li>De intensiteit wordt 100% / 36 ≈ <strong>3%</strong></li>
+    <li>Je hebt dus ongeveer <strong>1/36 van het oorspronkelijke licht over</strong> van op 1 meter.</li>
+  </ul>
+
+  <h3>Voorbeeld 2 – percentage → afstand</h3>
+  <p>Je weet dat de flits nog maar ongeveer 4% van de oorspronkelijke kracht heeft:</p>
+  <ul>
+    <li>Schrijf het als breuk: 4% = 4/100 = 1/25</li>
+    <li>Dat betekent dat d² ≈ 25</li>
+    <li>De wortel van 25 is 5 → de afstand is dus ongeveer <strong>5 meter</strong>.</li>
+  </ul>
+
+  <p>
+    Handig ezelsbruggetje: zie je een breuk als 1/4, 1/9, 1/16, 1/25, … dan neem je hier de wortel van om de afstand te krijgen.
+  </p>
+</section>
 
   <section class="card quiz">
     <h2>Oefenquiz – Omgekeerde kwadraten</h2>
@@ -63,3 +83,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
