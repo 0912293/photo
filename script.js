@@ -496,8 +496,8 @@ function setupHyperfocalQuiz() {
     const N = choose(apertures);
     const c = sensorType === 'Full-frame' ? 0.03 : 0.02; // mm
 
-    // H in mm, using H = f^2 / (N * c) + f
-    const H_mm = (f * f) / (N * c) + f;
+    // H in mm, using H = f^2 / (N * c)
+    const H_mm = (f * f) / (N * c);
     const H_m = H_mm / 1000;
     const rounded = Math.round(H_m * 10) / 10; // one decimal
 
@@ -608,3 +608,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHyperfocalQuiz();
   }
 });
+
