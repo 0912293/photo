@@ -303,7 +303,7 @@ function setupFlashQuiz() {
       questionEl.textContent =
         `Het richtgetal (GN) is ${guideNumberDisplay} bij ISO 100 ` +
         `en de afstand tot het onderwerp is ${distance} meter. ` +
-        `Welk diafragma (f-getal) moet je gebruiken? (GN = afstand × diafragma)`;
+        `Welk diafragma (f-getal) heb je dan?`;
       currentAnswer = aperture.toString();
 
     } else if (type === 'distance') {
@@ -311,7 +311,7 @@ function setupFlashQuiz() {
       questionEl.textContent =
         `Het richtgetal (GN) is ${guideNumberDisplay} bij ISO 100 ` +
         `en je fotografeert op f/${aperture}. ` +
-        `Op welke afstand (in meters) kan je onderwerp staan? (GN = afstand × diafragma)`;
+        `Op welke afstand (in meters) kan je onderwerp maximaal staan?`;
       currentAnswer = distance.toString();
 
     } else {
@@ -636,3 +636,4 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHyperfocalQuiz();
   }
 });
+
