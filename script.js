@@ -300,7 +300,7 @@ function setupFlashQuiz() {
     if (type === 'aperture') {
       questionEl.textContent =
         `Je flitser heeft een richtgetal (GN) van ${guideNumberDisplay} bij ISO 100. ` +
-        `Je onderwerp staat op ${distance} meter. Welk diafragma moet je gebruiken?`;
+        `Je onderwerp staat op ${distance} meter. Welk diafragma heb je dan?`;
       currentAnswer = aperture.toString();
     } else {
       questionEl.textContent =
@@ -608,4 +608,5 @@ document.addEventListener('DOMContentLoaded', () => {
     setupHyperfocalQuiz();
   }
 });
+
 
