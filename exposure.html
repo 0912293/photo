@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Belichting &amp; stops – Foto Rekenen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="exposure-page">
+<header>
+  <div class="header-top">
+    <h1>Belichting &amp; stops</h1>
+    <button type="button" class="theme-toggle" id="theme-toggle-btn">
+      🌙 Donkere modus
+    </button>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exposure.html" class="active">Belichting &amp; stops</a></li>
+      <li><a href="flash.html">Richtgetal flitser</a></li>
+      <li><a href="inverse.html">Omgekeerde kwadraten</a></li>
+      <li><a href="hyperfocal.html">Hyperfocale afstand</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <!-- Uitleg is verborgen via CSS (.explanation) -->
+  <section class="card explanation hidden">
+    <h2>Uitleg</h2>
+    <p>Een <strong>stop</strong> betekent een verdubbeling of halvering van de hoeveelheid licht.</p>
+    <ul>
+      <li><strong>ISO:</strong> 50 – 100 – 200 – 400 – 800 – 1600 – 3200 – 6400 – 12500</li>
+      <li><strong>Sluitertijd:</strong> 1" – 1/2 – 1/4 – 1/8 – 1/15 – 1/30 – 1/60 – 1/125 – 1/250 – 1/500 – 1/1000 – 1/2000 – 1/4000</li>
+      <li><strong>Diafragma:</strong> f/1.4 – f/2 – f/2.8 – f/4 – f/5.6 – f/8 – f/11 – f/16 – f/22 – f/32</li>
+    </ul>
+    <p>Als je één instelling met <em>x stops</em> verandert, moet je een andere instelling met
+      <em>x stops in de andere richting</em> aanpassen om dezelfde belichting te houden.</p>
+  </section>
+
+  <section class="card quiz">
+    <h2>Oefenquiz – Belichting</h2>
+    <p id="question"></p>
+    <p id="hint"></p>
+    <form id="quiz-form">
+      <label for="answer">Jouw antwoord:</label>
+      <input type="text" id="answer" autocomplete="off">
+      <button type="submit">Controleer / volgende</button>
+    </form>
+    <p id="feedback"></p>
+    <div class="score">
+      Goed: <span id="correct-count">0</span> |
+      Fout: <span id="wrong-count">0</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Foto Rekenen – Belichting &amp; stops
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

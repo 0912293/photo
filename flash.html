@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Richtgetal flitser – Foto Rekenen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="flash-page">
+<header>
+  <div class="header-top">
+    <h1>Richtgetal flitser</h1>
+    <button type="button" class="theme-toggle" id="theme-toggle-btn">
+      🌙 Donkere modus
+    </button>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exposure.html">Belichting &amp; stops</a></li>
+      <li><a href="flash.html" class="active">Richtgetal flitser</a></li>
+      <li><a href="inverse.html">Omgekeerde kwadraten</a></li>
+      <li><a href="hyperfocal.html">Hyperfocale afstand</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="card explanation hidden">
+    <h2>Uitleg</h2>
+    <p>Het <strong>richtgetal</strong> (guide number, GN) is een maat voor de lichtopbrengst
+      van een flitser bij ISO 100.</p>
+    <p>Formules:</p>
+    <ul>
+      <li><strong>GN = afstand × diafragma</strong></li>
+      <li><strong>afstand = GN / diafragma</strong></li>
+      <li><strong>diafragma = GN / afstand</strong></li>
+    </ul>
+    <p>Voorbeeld: richtgetal 48 bij ISO 100. Je onderwerp staat op 6 meter:<br>
+      48 = 6 × f/8 → je gebruikt dus f/8.</p>
+  </section>
+
+  <section class="card quiz">
+    <h2>Oefenquiz – Richtgetal</h2>
+    <p id="question"></p>
+    <p id="hint"></p>
+    <form id="quiz-form">
+      <label for="answer">Jouw antwoord:</label>
+      <input type="text" id="answer" autocomplete="off">
+      <button type="submit">Controleer / volgende</button>
+    </form>
+    <p id="feedback"></p>
+    <div class="score">
+      Goed: <span id="correct-count">0</span> |
+      Fout: <span id="wrong-count">0</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Foto Rekenen – Richtgetal flitser
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

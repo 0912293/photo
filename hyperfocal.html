@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <title>Hyperfocale afstand – Foto Rekenen</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body id="hyperfocal-page">
+<header>
+  <div class="header-top">
+    <h1>Hyperfocale afstand</h1>
+    <button type="button" class="theme-toggle" id="theme-toggle-btn">
+      🌙 Donkere modus
+    </button>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="exposure.html">Belichting &amp; stops</a></li>
+      <li><a href="flash.html">Richtgetal flitser</a></li>
+      <li><a href="inverse.html">Omgekeerde kwadraten</a></li>
+      <li><a href="hyperfocal.html" class="active">Hyperfocale afstand</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <section class="card explanation hidden">
+    <h2>Uitleg</h2>
+    <p>De <strong>hyperfocale afstand</strong> is de scherpstelafstand waarbij alles van ongeveer de helft
+      van die afstand tot oneindig acceptabel scherp is.</p>
+    <p>Ze hangt af van:</p>
+    <ul>
+      <li><strong>f</strong> – brandpuntsafstand (in mm)</li>
+      <li><strong>N</strong> – diafragma (f-getal)</li>
+      <li><strong>c</strong> – diameter van de cirkel van verwarring (CoC, in mm)</li>
+    </ul>
+    <p>Een veelgebruikte benadering is:</p>
+    <p><strong>H ≈ f² / (N × c) + f</strong> (H en f in mm)</p>
+    <p>De uitkomst in mm kun je delen door 1000 om meters te krijgen.</p>
+  </section>
+
+  <section class="card quiz">
+    <h2>Oefenquiz – Hyperfocale afstand</h2>
+    <p id="question"></p>
+    <p id="hint"></p>
+    <form id="quiz-form">
+      <label for="answer">Jouw antwoord (meters):</label>
+      <input type="text" id="answer" autocomplete="off">
+      <button type="submit">Controleer / volgende</button>
+    </form>
+    <p id="feedback"></p>
+    <div class="score">
+      Goed: <span id="correct-count">0</span> |
+      Fout: <span id="wrong-count">0</span>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Foto Rekenen – Hyperfocale afstand
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
